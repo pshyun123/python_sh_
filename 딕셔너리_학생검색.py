@@ -25,9 +25,9 @@ def modify_student():
     student_id = input("수정할 학번 입력 : ")
     student_info = student_map.get(student_id)
     if student_info:
-        name = input("새로운 이름 입력 : ") #여기서 name에 관해서 입력 받을 부분해두고
+        name = input("새로운 이름 입력 : ") #여기서 학생에 관한 정보 넣고
         addr = input("새로운 주소 입력 : ")
-        student_info['이름'] = name # 여기서 또?? 값입력 받아서 name에 넣어두는건가?
+        student_info['이름'] = name      #이 정보를 딕셔너리에서 업데이트하고 수정 사항을 확인합니다.
         student_info['주소'] = addr
         print(f"{name}님의 정보 수정완료!")
     else: print("해당 학생 정보가 없음")
@@ -51,7 +51,7 @@ def view_all_student():
 # 학생정보 저장
 def save_student():
     with open("student.json", 'w', encoding='utf-8')as file:
-        json.dump(student_map,file,ensure_ascii=False) #????왜 거짓이야?
+        json.dump(student_map,file,ensure_ascii=False) #ensure_ascii=False 매개변수는 JSON 파일에 비 ASCII 문자가 올바르게 인코딩되도록 합니다.
 # json파일 불러옴
 def load_student():
     try:
